@@ -8,11 +8,25 @@ body {
 .rec-outer {
     border-width: 5px;
     border-color: black;
-    height: 550px;
-    width: 650px;
+    height: 455px;
+    width: 455px;
     border-style: solid;
     box-sizing: border-box;
     position: absolute;
+    background:
+        linear-gradient(to top left,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0) calc(50% - 2.8px),
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 0) calc(50% + 2.8px),
+            rgba(0, 0, 0, 0) 100%),
+        linear-gradient(to top right,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0) calc(50% - 2.8px),
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 0) calc(50% + 2.8px),
+            rgba(0, 0, 0, 0) 100%);
+
 
 }
 
@@ -20,8 +34,8 @@ body {
     border-width: 5px;
     border-color: black;
     border-style: solid;
-    width: 66%;
-    height: 65%;
+    width: 63%;
+    height: 63%;
     position: relative;
     margin: auto;
     top: 19%;
@@ -32,8 +46,8 @@ body {
     border-width: 5px;
     border-color: black;
     border-style: solid;
-    width: 50%;
-    height: 45%;
+    width: 48%;
+    height: 48%;
     position: relative;
     margin: auto;
     margin-top: 24%;
@@ -45,8 +59,8 @@ body {
 /*game-container*/
 
 .game-wrapper {
-    height: 550px;
-    width: 650px;
+    height: 455px;
+    width: 455px;
     margin-top: 40px;
     margin-right: auto;
     margin-left: auto;
@@ -78,10 +92,14 @@ body {
 
 
 #circle-1,
-#circle-4,
 #circle-7 {
     top: -14px;
     left: -15px;
+}
+
+#circle-4 {
+    top: -18px;
+    left: -12px;
 }
 
 #circle-2 {
@@ -100,48 +118,48 @@ body {
 }
 
 #circle-6 {
-    left: 96%;
-    top: -13px;
+    left: 95%;
+    top: -18px;
 }
 
 #circle-8 {
-    left: 43%;
+    left: 42%;
     top: -18px;
 }
 
 #circle-9 {
-    left: 93%;
+    left: 89%;
     top: -15px;
 }
 
 #circle-10 {
     left: -16px;
-    top: 50%;
+    top: 47%;
 }
 
 #circle-11 {
     left: -17px;
-    top: 48%;
+    top: 44%;
 }
 
 #circle-12 {
     left: -18px;
-    top: 42%;
+    top: 40%;
 }
 
 #circle-13 {
-    left: 94%;
-    top: 42%;
+    left: 90%;
+    top: 38%;
 }
 
 #circle-14 {
-    left: 97%;
-    top: 48%;
+    left: 96%;
+    top: 43%;
 }
 
 #circle-15 {
     left: 98%;
-    top: 50%;
+    top: 46%;
 }
 
 #circle-16 {
@@ -156,7 +174,7 @@ body {
 }
 
 #circle-18 {
-    left: 93%;
+    left: 90%;
     top: 90%;
 }
 
@@ -187,33 +205,36 @@ body {
 
 #circle-21 {
     top: 96%;
-    left: 97%;
+    left: 96%;
 }
 
 /* in-between lines */
-.line-top-left {
-    border-right-width: 6px;
-    border-right-color: black;
-    border-right-style: solid;
-    width: 50%;
-    height: 58%;
-
-    float: left;
-    box-sizing: border-box;
-    margin-left: 2.5px;
-
-}
-
-.line-bottom-left {
+.line-top {
     border-right-width: 5px;
     border-right-color: black;
     border-right-style: solid;
-    width: 50.8%;
-    height: 45%;
+    width: 51%;
+    height: 59%;
+    float: left;
+    box-sizing: border-box;
+    margin-left: 2.5px;
+    position: relative;
+    bottom: 8.5%;
+
+
+}
+
+.line-bottom {
+    border-right-width: 5px;
+    border-right-color: black;
+    border-right-style: solid;
+    width: 52%;
+    height: 44%;
     position: relative;
     float: left;
     box-sizing: border-box;
     margin-left: 2.5px;
+
 }
 
 .line-right {
@@ -225,7 +246,7 @@ body {
     position: relative;
     float: right;
     box-sizing: border-box;
-    bottom: 5%;
+    bottom: 10%;
 
 }
 
@@ -233,13 +254,12 @@ body {
     border-bottom-width: 5px;
     border-bottom-color: black;
     border-bottom-style: solid;
-    bottom: 5%;
 
 }
 
 /* corner line */
 
-.vertical-top-left {
+/* .vertical-top-left {
     border-right-width: 5px;
     border-right-color: black;
     border-right-style: solid;
@@ -250,4 +270,4 @@ body {
     box-sizing: border-box;
     margin-left: 2.5px;
     transform: rotate(180deg) translateY(51px) translateX(5px);
-}
+} */
