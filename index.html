@@ -8,8 +8,6 @@
     <!-- bootstrap css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- bootstrap theme -->
-    <link rel="stylesheet" type="text/css" href="bootstrap-theme.min.css" />
     <!-- google-fonts -->
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|VT323" rel="stylesheet">
     <!-- jquery -->
@@ -32,16 +30,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Morabaraba Game</a>
+            <a class="navbar-brand blink-title" href="#">Morabaraba Game</a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse blink-title">
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a data-toggle="modal" href="#about">Steps To Play</a>
                 </li>
                 <li>
-                    <a href="http://github.com/kayalvaer/ms2 project" target="_blank">
-                        <i class="fa fa-github"></i>
+                    <a href="https://github.com/Kayalvaer/ms-project2/blob/master/index.html" target="_blank">
+                        <i class="fa fa-github blink-title"></i>
                         GitHub
                     </a>
                 </li>
@@ -60,13 +58,13 @@
                 <div class="col-xs-12 player-id">Player 1</div>
             </div>
             <div class="play parts">
-                <div class="col-xs-6 collect-parts">Collect cows</div>
-                <div class="col-xs-6 player-parts">On-hand cows</div>
+                <div class="col-xs-6 collect-parts">Owned cows</div>
+                <div class="col-xs-6 player-parts">Taken cows</div>
             </div>
         </div>
 
-        <div class="col-xs-6">
 
+        <div class="col-xs-6">
             <!-------------------Board-------------->
             <div class="game-wrapper">
 
@@ -107,6 +105,18 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!----------------Player2 ------------------->
+
+        <div class="col-xs-3 player-2" style="opacity:0.25;">
+            <div class="play">
+                <div class="col-xs-12 player-id">Player 2</div>
+            </div>
+            <div class="play parts">
+                <div class="col-xs-6 collect-parts">Owned cows</div>
+                <div class="col-xs-6 player-parts">Taken cows</div>
             </div>
         </div>
 
@@ -194,12 +204,8 @@
 </body>
 
 <!-- jQuery -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<!-- jQuery ui -->
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-<!-- bootstrap -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<!-- game core js -->
+
+<!-- game js -->
 <script src="mmele.js"></script>
 
 </html>

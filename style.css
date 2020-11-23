@@ -4,6 +4,7 @@ body {
     font-family: 'Press Start 2P', cursive;
     min-width: 750px;
     margin-top: 7%;
+    color: #000000e3;
 }
 
 
@@ -21,6 +22,19 @@ ul.nav.navbar-nav.navbar-right {
     background-color: #d47b06;
 }
 
+.blink-title {
+    animation: blink-title 0.3s 3;
+}
+
+@-webkit-keyframes blink-title {
+
+    0%,
+
+    50% {
+        color: rgb(97, 240, 40);
+    }
+}
+
 /* .navbar-default .navbar-nav>li>a>i.fa-twitter {
     color: #d47b06;
 }
@@ -36,9 +50,27 @@ ul.nav.navbar-nav.navbar-right {
 
 /* Board */
 
+@media screen and (min-width: 992px) {
+    .game-wrapper {
+        height: 400px;
+        width: 400px;
+    }
+
+    .outer-box {
+        height: 400px;
+        width: 400px;
+    }
+}
+
+.game-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
 .rec-outer {
     border-width: 5px;
-    border-color: black;
+    border-color: #000000e3;
     height: 455px;
     width: 455px;
     border-style: solid;
@@ -63,7 +95,7 @@ ul.nav.navbar-nav.navbar-right {
 
 .rec-middle {
     border-width: 5px;
-    border-color: black;
+    border-color: #000000e3;
     border-style: solid;
     width: 63%;
     height: 63%;
@@ -75,7 +107,7 @@ ul.nav.navbar-nav.navbar-right {
 
 .rec-inner {
     border-width: 5px;
-    border-color: black;
+    border-color: #000000e3;
     border-style: solid;
     width: 48%;
     height: 48%;
@@ -242,7 +274,7 @@ ul.nav.navbar-nav.navbar-right {
 /* in-between lines */
 .line-top {
     border-right-width: 5px;
-    border-right-color: black;
+    border-right-color: #000000e3;
     border-right-style: solid;
     width: 51%;
     height: 59%;
@@ -257,7 +289,7 @@ ul.nav.navbar-nav.navbar-right {
 
 .line-bottom {
     border-right-width: 5px;
-    border-right-color: black;
+    border-right-color: #000000e3;
     border-right-style: solid;
     width: 52%;
     height: 44%;
@@ -268,22 +300,26 @@ ul.nav.navbar-nav.navbar-right {
 
 }
 
+
+
 .line-right {
     border-top-width: 5px;
-    border-top-color: black;
+    border-top-color: #000000e3;
     border-top-style: solid;
     width: 40%;
-    height: 50%;
+    height: 40%;
     position: relative;
     float: right;
     box-sizing: border-box;
     bottom: 10%;
+    display: flex;
+    margin-left: 25px;
 
 }
 
 .bottom-line {
     border-bottom-width: 5px;
-    border-bottom-color: black;
+    border-bottom-color: #000000e3;
     border-bottom-style: solid;
 
 }
@@ -302,3 +338,23 @@ ul.nav.navbar-nav.navbar-right {
     margin-left: 2.5px;
     transform: rotate(180deg) translateY(51px) translateX(5px);
 } */
+
+/* Player tokens */
+
+.player-1 {
+    color: #0000ff;
+}
+
+.player-2 {
+    color: #e4a915;
+}
+
+/* selected tokens */
+
+/* .selected {
+    animation: blink-node 1s infinite;
+  }
+  
+  .selected-cows {
+    animation: blink-node 1s 3;
+  } */
