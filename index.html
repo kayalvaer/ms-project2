@@ -14,48 +14,93 @@
 </head>
 
 <body>
-    <div class="col-xs-6">
-        <div class="game-wrapper">
 
+    <!------------Navigation------------->
 
-            <div class="line-top bottom-line">
+    <div class="nav nav-info nav-top" role="navigation">
+        <div class="container">
+            <div class="nav-head">
+                <button type="nav-btn" class="nav-toggle" data-toggle="hidden" data-target=".nav-hidden">
+                    <span class="toggle-row"></span>
+                    <span class="toggle-row"></span>
+                    <span class="toggle-row"></span>
+                </button>
+                <a class="nav-visible" href="#">Morabaraba Game</a>
             </div>
-            <div class="line-bottom"></div>
-            <div class="line-right"></div>
-            <div class="vertical-top-left"></div>
-            <div class="rec-outer">
+            <div class="hidden nav-hidden">
+                <ul class="nav2 nav-nav2 nav-position">
+                    <li>
+                        <a data-toggle="modal" href="#about">Steps To Play Game?</a>
+                    </li>
+                    <li>
+                        <a href="http://github.com/kayalvaer/ms2 project" target="_blank">
+                            <i class="fa fa-github"></i>
+                            GitHub
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-                <div id="circle-1" class="circle"></div>
-                <div id="circle-2" class="circle"></div>
-                <div id="circle-3" class="circle"></div>
-                <div id="circle-10" class="circle"></div>
-                <div id="circle-15" class="circle"></div>
-                <div id="circle-22" class="circle"></div>
-                <div id="circle-23" class="circle"></div>
-                <div id="circle-24" class="circle"></div>
-                <div class="rec-middle">
-                    <div id="circle-4" class="circle"></div>
-                    <div id="circle-5" class="circle"></div>
-                    <div id="circle-6" class="circle"></div>
-                    <div id="circle-11" class="circle"></div>
-                    <div id="circle-14" class="circle"></div>
-                    <div id="circle-19" class="circle"></div>
-                    <div id="circle-20" class="circle"></div>
-                    <div id="circle-21" class="circle"></div>
-                    <div class="rec-inner">
-                        <div id="circle-7" class="circle"></div>
-                        <div id="circle-8" class="circle"></div>
-                        <div id="circle-9" class="circle"></div>
-                        <div id="circle-12" class="circle"></div>
-                        <div id="circle-13" class="circle"></div>
-                        <div id="circle-16" class="circle"></div>
-                        <div id="circle-17" class="circle"></div>
-                        <div id="circle-18" class="circle"></div>
+    <!---------------- Play ------------->
+    <div class="play game">
+
+        <!------------------ Player 1 -------------->
+        <div class="col-xs-3 player-1">
+            <div class="play">
+                <div class="col-xs-12 player-id">Player 1</div>
+            </div>
+            <div class="play parts">
+                <div class="col-xs-6 collect-parts">Collect cows</div>
+                <div class="col-xs-6 player-parts">On-hand cows</div>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+
+            <!-------------------Board-------------->
+            <div class="game-wrapper">
+
+
+                <div class="line-top bottom-line">
+                </div>
+                <div class="line-bottom"></div>
+                <div class="line-right"></div>
+                <div class="vertical-top-left"></div>
+                <div class="rec-outer">
+
+                    <div id="circle-1" class="circle"></div>
+                    <div id="circle-2" class="circle"></div>
+                    <div id="circle-3" class="circle"></div>
+                    <div id="circle-10" class="circle"></div>
+                    <div id="circle-15" class="circle"></div>
+                    <div id="circle-22" class="circle"></div>
+                    <div id="circle-23" class="circle"></div>
+                    <div id="circle-24" class="circle"></div>
+                    <div class="rec-middle">
+                        <div id="circle-4" class="circle"></div>
+                        <div id="circle-5" class="circle"></div>
+                        <div id="circle-6" class="circle"></div>
+                        <div id="circle-11" class="circle"></div>
+                        <div id="circle-14" class="circle"></div>
+                        <div id="circle-19" class="circle"></div>
+                        <div id="circle-20" class="circle"></div>
+                        <div id="circle-21" class="circle"></div>
+                        <div class="rec-inner">
+                            <div id="circle-7" class="circle"></div>
+                            <div id="circle-8" class="circle"></div>
+                            <div id="circle-9" class="circle"></div>
+                            <div id="circle-12" class="circle"></div>
+                            <div id="circle-13" class="circle"></div>
+                            <div id="circle-16" class="circle"></div>
+                            <div id="circle-17" class="circle"></div>
+                            <div id="circle-18" class="circle"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
