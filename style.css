@@ -26,6 +26,7 @@ ul.nav.navbar-nav.navbar-right {
     animation: blink-title 0.3s 3;
 }
 
+
 @-webkit-keyframes blink-title {
 
     0%,
@@ -340,13 +341,50 @@ ul.nav.navbar-nav.navbar-right {
 } */
 
 /* Player tokens */
-
+/* 
 .player-1 {
     color: #0000ff;
 }
 
 .player-2 {
-    color: #e4a915;
+    color: #e45015;
+}
+ */
+
+.player-1 .player-id {
+    color: #0000ff;
+    font-size: 22px;
+}
+
+.player-2 .player-id {
+    color: #e45015;
+    font-size: 22px;
+}
+
+.player-1-parts {
+    border-radius: 50%;
+    background-color: #0000ff;
+    border-width: 5px;
+    border-style: solid;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    margin-bottom: 3px;
+}
+
+.player-2-parts {
+    border-radius: 50%;
+    background-color: #e45015;
+    border-width: 5px;
+    border-style: solid;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    margin-bottom: 3px;
+}
+
+.buttons {
+    margin-top: 50px;
 }
 
 /* selected tokens */
@@ -358,3 +396,14 @@ ul.nav.navbar-nav.navbar-right {
   .selected-cows {
     animation: blink-node 1s 3;
   } */
+
+/* Alert box */
+
+.alerts {
+    border-width: 15px;
+    border-radius: 20px;
+    border-style: solid;
+    margin-bottom: 20px;
+    color: #bbbfbf;
+    padding-top: 0 auto;
+}
