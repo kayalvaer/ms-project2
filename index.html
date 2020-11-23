@@ -4,9 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" type="text/css" href="bootstrap-theme.min.css" />
+    <!-- google-fonts -->
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|VT323" rel="stylesheet">
+    <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <title>Morabaraba Game</title>
@@ -17,31 +23,33 @@
 
     <!------------Navigation------------->
 
-    <div class="nav nav-info nav-top" role="navigation">
-        <div class="container">
-            <div class="nav-head">
-                <button type="nav-btn" class="nav-toggle" data-toggle="hidden" data-target=".nav-hidden">
-                    <span class="toggle-row"></span>
-                    <span class="toggle-row"></span>
-                    <span class="toggle-row"></span>
-                </button>
-                <a class="nav-visible" href="#">Morabaraba Game</a>
-            </div>
-            <div class="hidden nav-hidden">
-                <ul class="nav2 nav-nav2 nav-position">
-                    <li>
-                        <a data-toggle="modal" href="#about">Steps To Play Game?</a>
-                    </li>
-                    <li>
-                        <a href="http://github.com/kayalvaer/ms2 project" target="_blank">
-                            <i class="fa fa-github"></i>
-                            GitHub
-                        </a>
-                    </li>
-                </ul>
-            </div>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container"></div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Morabaraba Game</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a data-toggle="modal" href="#about">Steps To Play</a>
+                </li>
+                <li>
+                    <a href="http://github.com/kayalvaer/ms2 project" target="_blank">
+                        <i class="fa fa-github"></i>
+                        GitHub
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
+    </div>
+
 
     <!---------------- Play ------------->
     <div class="play game">
@@ -102,9 +110,96 @@
             </div>
         </div>
 
+        <!------------Play Game Steps info ---------->
+
+        <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <h3 class="modal-title">Steps To Play</h3>
+                    </div>
+                    <div class="modal-body">
+                        <h4>About</h4>
+                        <p>
+                            Most commonly played in Southern Africa especially in Botswana, South Africa and Lesotho,
+                            Morabaraba is a traditional two-player
+                            strategy board game.It is reported that Morabaraba boards carved in rock are dated to be at
+                            least 800 years old, therefore indicating
+                            a non-European origin.It has some similarities to the Twelve Men's Morris, a variation on
+                            the Roman board game Nine Men's Morris.
+                            In this European game the counters are most commonly referred to as men (mills), but in the
+                            South African game the counters are referred
+                            to as cows, the game being particularly popular amongst youth especially young men and those
+                            herding cattle.
+                        </p>
+                        <br>
+                        <h4>Setup</h4>
+                        <p>
+                            1. Morabaraba is played on a board made of 3 nested squares or triangles with points at the
+                            corners and in the middle of each side of
+                            the squares. Lines are drawn to indicate permitted moves.
+
+                            2. Each player has to have 12 tokens the colour of their choice. In Botswana many things can
+                            be used, for example bottle cans,
+                            stones, burned wood pieces, beads. These will start off the board.
+
+                            3. The Players rolls the dice or spin a coin to decide on who begins the game.
+                        </p>
+                        <br>
+                        <h4>Play steps</h4>
+                        <p>
+                            1. The idea is to try placing 3 of their tokens in a line at the first phase of the game
+                            also, thereon takes turns to place 1 token onto
+                            an empty space per turn.
+
+                            2. Upon forming a line of 3 tokens, they can capture or collect any one of the opponent's
+                            tokens from the game, except those already in a
+                            line or sequence of 3. However if the opponent only has tokens in lines of 3, these can be
+                            taken.
+
+                            3. If two lines of 3 tokens are formed by placing a single token, only one of the opponent’s
+                            token can be captured.
+
+                            4. Once a token has been captured, from the board, it cannot be replayed.
+
+                            5. The next phase begins when all the tokens have been placed on the board. Players take
+                            turns to move their tokens to an adjacent empty
+                            spaces, following the play lines indicated trying to form lines of 3.
+
+                            6. A player cannot break their own line of 3 tokens and then in the next turn, move their
+                            token back to reform the line.
+
+                            7. In the final phase of the game, when a player has only 3 tokens remaining, they may move
+                            their token to any available space on the board.
+
+                            8. To win the game, a player must reduce their opponent to 2 tokens.
+
+                            9. A win can also be achieved if an opponent cannot move.
+
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
 
 </body>
+
+<!-- jQuery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- jQuery ui -->
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<!-- bootstrap -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<!-- game core js -->
+<script src="mmele.js"></script>
 
 </html>

@@ -3,12 +3,36 @@
 body {
     font-family: 'Press Start 2P', cursive;
     min-width: 750px;
+    margin-top: 7%;
 }
 
 
 /*  Navigation */
 
+.navbar-brand {
+    color: #000000e3;
+}
 
+ul.nav.navbar-nav.navbar-right {
+    color: #000000e3;
+}
+
+.navbar-collapse {
+    background-color: #d47b06;
+}
+
+/* .navbar-default .navbar-nav>li>a>i.fa-twitter {
+    color: #d47b06;
+}
+
+.navbar-default .navbar-nav>li>a>i.fa-github {
+    color: #242121;
+}
+
+
+.container {
+    bottom: 100%;
+} */
 
 /* Board */
 
