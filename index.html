@@ -12,7 +12,10 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|VT323" rel="stylesheet">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css"
+        type="text/css" />
     <title>Morabaraba Game</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
@@ -57,26 +60,27 @@
 
     <!----------------- Alert box ------------>
 
-    <div class="play alerts"></div>
-
+    <!--  <div class="row alerts"></div> -->
+    <div class="row messages"></div>
 
     <!---------------- Play ------------->
-    <div class="play game">
+    <div class="row game">
 
         <!------------------ Player 1 -------------->
-        <div class="col-xs-3 player-1">
-            <div class="play">
+        <div class="col-xs-3 player-id-1">
+            <div class="row">
                 <div class="col-xs-12 player-id">Player 1</div>
             </div>
-            <div class="play parts">
+            <div class="row parts">
                 <div class="col-xs-6 collect-parts">Owned cows</div>
                 <div class="col-xs-6 player-parts">Taken cows</div>
             </div>
         </div>
 
 
+        <!-------------------Board-------------->
         <div class="col-xs-6">
-            <!-------------------Board-------------->
+
             <div class="game-wrapper">
 
 
@@ -121,102 +125,124 @@
 
         <!----------------Player2 ------------------->
 
-        <div class="col-xs-3 player-2">
-            <div class="play">
+        <div class="col-xs-3 player-id-2" style="opacity:0.25;">
+            <div class="row">
                 <div class="col-xs-12 player-id">Player 2</div>
             </div>
-            <div class="play parts">
-                <div class="col-xs-6 collect-parts">Owned cows</div>
-                <div class="col-xs-6 player-parts">Taken cows</div>
+            <div class="row parts">
+                <div class="col-xs-6 collect-parts">Owned Cows</div>
+                <div class="col-xs-6 player-parts">Taken Cows</div>
             </div>
         </div>
 
-        <!------------Play Game Steps info ---------->
+    </div>
+    </div>
 
-        <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            <i class="fa fa-times"></i>
-                        </button>
-                        <h3 class="modal-title">Steps To Play</h3>
-                    </div>
-                    <div class="modal-body">
-                        <h4>About</h4>
-                        <p>
-                            Most commonly played in Southern Africa especially in Botswana, South Africa and Lesotho,
-                            Morabaraba is a traditional two-player
-                            strategy board game.It is reported that Morabaraba boards carved in rock are dated to be at
-                            least 800 years old, therefore indicating
-                            a non-European origin.It has some similarities to the Twelve Men's Morris, a variation on
-                            the Roman board game Nine Men's Morris.
-                            In this European game the counters are most commonly referred to as men (mills), but in the
-                            South African game the counters are referred
-                            to as cows, the game being particularly popular amongst youth especially young men and those
-                            herding cattle.
-                        </p>
-                        <br>
-                        <h4>Setup</h4>
-                        <p>
-                            1. Morabaraba is played on a board made of 3 nested squares or triangles with points at the
-                            corners and in the middle of each side of
-                            the squares. Lines are drawn to indicate permitted moves.
+    <!-- buttons -->
+    <!--   <div class="row buttons">
+        <div class="col-xs-12">
+            <button class="btn" type="button" name="cancel" id="cancel">Cancel Selection</button>
+        </div>
+    </div> -->
 
-                            2. Each player has to have 12 tokens the colour of their choice. In Botswana many things can
-                            be used, for example bottle cans,
-                            stones, burned wood pieces, beads. These will start off the board.
 
-                            3. The Players rolls the dice or spin a coin to decide on who begins the game.
-                        </p>
-                        <br>
-                        <h4>Play steps</h4>
-                        <p>
-                            1. The idea is to try placing 3 of their tokens in a line at the first phase of the game
-                            also, thereon takes turns to place 1 token onto
-                            an empty space per turn.
+    <!--  container -->
+    <!--   <div class="container text-center winner-page" hidden="true">
+        <div class="row title">
+            <h1>MORABARABA GAME</h1>
+        </div>
+        <div class="winner-message"></div>
+        <button class="btn play-again">Play Again</button>
+    </div> -->
 
-                            2. Upon forming a line of 3 tokens, they can capture or collect any one of the opponent's
-                            tokens from the game, except those already in a
-                            line or sequence of 3. However if the opponent only has tokens in lines of 3, these can be
-                            taken.
+    <!------------Play Game Steps info ---------->
 
-                            3. If two lines of 3 tokens are formed by placing a single token, only one of the opponent’s
-                            token can be captured.
+    <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" onclick="stepsToPlay" data-dismiss="modal" aria-hidden="true ">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <h3 class="modal-title">Steps To Play</h3>
+                </div>
+                <div class="modal-body">
+                    <h4>About</h4>
+                    <p>
+                        Most commonly played in Southern Africa especially in Botswana, South Africa and Lesotho,
+                        Morabaraba is a traditional two-player
+                        strategy board game.It is reported that Morabaraba boards carved in rock are dated to be at
+                        least 800 years old, therefore indicating
+                        a non-European origin.It has some similarities to the Twelve Men's Morris, a variation on
+                        the Roman board game Nine Men's Morris.
+                        In this European game the counters are most commonly referred to as men (mills), but in the
+                        South African game the counters are referred
+                        to as cows, the game being particularly popular amongst youth especially young men and those
+                        herding cattle.
+                    </p>
+                    <br>
+                    <h4>Setup</h4>
+                    <p>
+                        1. Morabaraba is played on a board made of 3 nested squares or triangles with points at the
+                        corners and in the middle of each side of
+                        the squares. Lines are drawn to indicate permitted moves.
 
-                            4. Once a token has been captured, from the board, it cannot be replayed.
+                        2. Each player has to have 12 tokens the colour of their choice. In Botswana many things can
+                        be used, for example bottle cans,
+                        stones, burned wood pieces, beads. These will start off the board.
 
-                            5. The next phase begins when all the tokens have been placed on the board. Players take
-                            turns to move their tokens to an adjacent empty
-                            spaces, following the play lines indicated trying to form lines of 3.
+                        3. The Players rolls the dice or spin a coin to decide on who begins the game.
+                    </p>
+                    <br>
+                    <h4>Play steps</h4>
+                    <p>
+                        1. The idea is to try placing 3 of their tokens in a line at the first phase of the game
+                        also, thereon takes turns to place 1 token onto
+                        an empty space per turn.
 
-                            6. A player cannot break their own line of 3 tokens and then in the next turn, move their
-                            token back to reform the line.
+                        2. Upon forming a line of 3 tokens, they can capture or collect any one of the opponent's
+                        tokens from the game, except those already in a
+                        line or sequence of 3. However if the opponent only has tokens in lines of 3, these can be
+                        taken.
 
-                            7. In the final phase of the game, when a player has only 3 tokens remaining, they may move
-                            their token to any available space on the board.
+                        3. If two lines of 3 tokens are formed by placing a single token, only one of the opponent’s
+                        token can be captured.
 
-                            8. To win the game, a player must reduce their opponent to 2 tokens.
+                        4. Once a token has been captured, from the board, it cannot be replayed.
 
-                            9. A win can also be achieved if an opponent cannot move.
+                        5. The next phase begins when all the tokens have been placed on the board. Players take
+                        turns to move their tokens to an adjacent empty
+                        spaces, following the play lines indicated trying to form lines of 3.
 
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" data-dismiss="modal">Close</button>
-                    </div>
+                        6. A player cannot break their own line of 3 tokens and then in the next turn, move their
+                        token back to reform the line.
+
+                        7. In the final phase of the game, when a player has only 3 tokens remaining, they may move
+                        their token to any available space on the board.
+
+                        8. To win the game, a player must reduce their opponent to 2 tokens.
+
+                        9. A win can also be achieved if an opponent cannot move.
+
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
+    </div>
 
-
+    <!-- game js -->
+    <script src="javascript/sets.js"></script>
+    <script src="javascript/script.js"></script>
+    <script src="javascript/tokens.js"></script>
 
 
 </body>
 
 <!-- jQuery -->
 
-<!-- game js -->
-<script src="mmele.js"></script>
+
 
 </html>

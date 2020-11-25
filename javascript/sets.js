@@ -1,0 +1,52 @@
+const ADJ_COMBINATIONS = {
+    "circle-1": ["circle-2", "circle-10"],
+    "circle-2": ["circle-1", "circle-3", "circle-5"],
+    "circle-3": ["circle-2", "circle-15"],
+    "circle-4": ["circle-11", "circle-5"],
+    "circle-5": ["circle-2", "circle-4", "circle-6", "circle-8"],
+    "circle-6": ["circle-5", "circle-14"],
+    "circle-7": ["circle-8", "circle-12"],
+    "circle-8": ["circle-5", "circle-7", "circle-9"],
+    "circle-9": ["circle-8", "circle-13"],
+    "circle-10": ["circle-1", "circle-11", "circle-22"],
+    "circle-11": ["circle-10", "circle-4", "circle-19", "circle-12"],
+    "circle-12": ["circle-11", "circle-7", "circle-16"],
+    "circle-13": ["circle-9", "circle-18", "circle-14"],
+    "circle-14": ["circle-13", "circle-6", "circle-21", "circle-15"],
+    "circle-15": ["circle-14", "circle-3", "circle-24"],
+    "circle-16": ["circle-12", "circle-17"],
+    "circle-17": ["circle-16", "circle-18", "circle-20"],
+    "circle-18": ["circle-17", "circle-13"],
+    "circle-19": ["circle-11", "circle-20"],
+    "circle-20": ["circle-19", "circle-17", "circle-21", "circle-23"],
+    "circle-21": ["circle-20", "circle-14"],
+    "circle-22": ["circle-10", "circle-23"],
+    "circle-23": ["circle-22", "circle-20", "circle-24"],
+    "circle-24": ["circle-23", "circle-15"]
+}
+
+const WIN_COMBINATIONS = [
+    // across
+    ["circle-1", "circle-2", "circle-3"],
+    ["circle-4", "circle-5", "circle-6"],
+    ["circle-7", "circle-8", "circle-9"],
+    ["circle-10", "circle-11", "circle-12"],
+    ["circle-13", "circle-14", "circle-15"],
+    ["circle-16", "circle-17", "circle-18"],
+    ["circle-19", "circle-20", "circle-21"],
+    ["circle-22", "circle-23", "circle-24"],
+    // diagonal
+    ["circle-1", "circle-4", "circle-7"],
+    ["circle-3", "circle-6", "circle-9"],
+    ["circle-18", "circle-21", "circle-24"],
+    ["circle-16", "circle-19", "circle-22"],
+    //down
+    ["circle-1", "circle-10", "circle-22"],
+    ["circle-4", "circle-11", "circle-19"],
+    ["circle-7", "circle-12", "circle-16"],
+    ["circle-2", "circle-5", "circle-8"],
+    ["circle-17", "circle-20", "circle-23"],
+    ["circle-9", "circle-13", "circle-18"],
+    ["circle-6", "circle-14", "circle-21"],
+    ["circle-3", "circle-15", "circle-24"],
+]
