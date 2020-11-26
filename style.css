@@ -7,6 +7,11 @@ body {
     color: #000000e3;
 }
 
+.node img {
+    right: 40px;
+    top: -40px;
+}
+
 
 /*  Navigation */
 

@@ -28,6 +28,14 @@ function nodeClick(position) {
 
     } else {
         playBoard[position] = currentPlayer
+        //select an img that is a child of class .node-1 img
+        let img = "#node-" + (position + 1) + " img"
+
+        if (currentPlayer == player1) {
+            $(img).attr("src", "/imgs/pexels-karolina-grabowska-4397810.png")
+        } else {
+            $(img).attr("src", "/imgs/pexels-miguel-á-padriñán-3752033.png")
+        }
     }
 
 
