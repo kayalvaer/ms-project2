@@ -57,10 +57,10 @@ ul.nav.navbar-nav.navbar-right {
         width: 400px;
     }
 
-    .outer-box {
+    /*   .outer-box {
         height: 400px;
         width: 400px;
-    }
+    } */
 }
 
 
@@ -70,6 +70,7 @@ ul.nav.navbar-nav.navbar-right {
     border-color: #000000e3;
     height: 455px;
     width: 455px;
+    top: 20px;
     border-style: solid;
     box-sizing: border-box;
     position: absolute;
@@ -125,23 +126,23 @@ ul.nav.navbar-nav.navbar-right {
     margin-top: 40px;
     margin-right: auto;
     margin-left: auto;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: center;
 
 }
 
 
 
-.pins {
+/* .pins {
     clear: both;
     padding-top: 20px;
-}
+} */
 
-/* input circle*/
+/* input node*/
 
 
-.circle {
+.node {
     position: absolute;
     border-radius: 50%;
     border-color: black;
@@ -153,124 +154,124 @@ ul.nav.navbar-nav.navbar-right {
     background: #cac7c7;
 }
 
-.circle:hover {
+.node:hover {
     cursor: pointer;
 }
 
 
-#circle-1,
-#circle-7 {
+#node-1,
+#node-7 {
     top: -14px;
     left: -15px;
 }
 
-#circle-4 {
+#node-4 {
     top: -18px;
     left: -12px;
 }
 
-#circle-2 {
+#node-2 {
     left: 47.8%;
     top: -17px;
 }
 
-#circle-5 {
+#node-5 {
     left: 46.5%;
     top: -17px;
 }
 
-#circle-3 {
+#node-3 {
     left: 97.5%;
     top: -17px;
 }
 
-#circle-6 {
+#node-6 {
     left: 95%;
     top: -18px;
 }
 
-#circle-8 {
+#node-8 {
     left: 42%;
     top: -18px;
 }
 
-#circle-9 {
+#node-9 {
     left: 89%;
     top: -15px;
 }
 
-#circle-10 {
+#node-10 {
     left: -16px;
     top: 47%;
 }
 
-#circle-11 {
+#node-11 {
     left: -17px;
     top: 44%;
 }
 
-#circle-12 {
+#node-12 {
     left: -18px;
     top: 40%;
 }
 
-#circle-13 {
+#node-13 {
     left: 90%;
     top: 38%;
 }
 
-#circle-14 {
+#node-14 {
     left: 96%;
     top: 43%;
 }
 
-#circle-15 {
+#node-15 {
     left: 98%;
     top: 46%;
 }
 
-#circle-16 {
+#node-16 {
     left: -15px;
     top: 90%;
 
 }
 
-#circle-17 {
+#node-17 {
     left: 45%;
     top: 91%;
 }
 
-#circle-18 {
+#node-18 {
     left: 90%;
     top: 90%;
 }
 
-#circle-22 {
+#node-22 {
     left: -15px;
     top: 97%;
 }
 
-#circle-19 {
+#node-19 {
     left: -15px;
     top: 96%;
 }
 
-#circle-23 {
+#node-23 {
     top: 98%;
     left: 48.5%;
 }
 
-#circle-20 {
+#node-20 {
     top: 96%;
     left: 48%;
 }
 
-#circle-24 {
+#node-24 {
     top: 97%;
     left: 98%;
 }
 
-#circle-21 {
+#node-21 {
     top: 96%;
     left: 96%;
 }
@@ -373,6 +374,7 @@ ul.nav.navbar-nav.navbar-right {
     height: 30px;
     margin: auto;
     margin-bottom: 3px;
+
 }
 
 .player-2-parts {
@@ -384,6 +386,7 @@ ul.nav.navbar-nav.navbar-right {
     height: 30px;
     margin: auto;
     margin-bottom: 3px;
+
 }
 
 .buttons {
@@ -432,46 +435,3 @@ ul.nav.navbar-nav.navbar-right {
     color: #bbbfbf;
     padding-top: 0 auto;
 }
-
-/* .row {
-    margin-right: 0px;
-    margin-left: 0px;
-} */
-
-/* test */
-/* 
-.player-stats-1 .player-name {
-    color: blue;
-    font-size: 22px;
-}
-
-.player-stats-2 .player-name {
-    color: red;
-    font-size: 22px;
-}
-
-.player-1-piece {
-    border-radius: 50%;
-    background-color: blue;
-    border-width: 5px;
-    border-style: solid;
-    width: 30px;
-    height: 30px;
-    margin: auto;
-    margin-bottom: 3px;
-}
-
-.player-2-piece {
-    border-radius: 50%;
-    background-color: red;
-    border-width: 5px;
-    border-style: solid;
-    width: 30px;
-    height: 30px;
-    margin: auto;
-    margin-bottom: 3px;
-} 
-
-.buttons {
-    margin-top: 50px;
-}*/
