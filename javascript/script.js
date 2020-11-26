@@ -13,6 +13,15 @@ console.log(playBoard)
 function nodeClick(position) {
     playBoard[position] = currentPlayer
     console.log(playBoard)
+    //player switch
+    if (currentPlayer == player1) {
+        currentPlayer = player2
+    } else {
+        currentPlayer = player1
+    }
+    //write send alerts
+    sendAlerts()
+
 }
 
 function sendAlerts() {
