@@ -5,6 +5,8 @@ let emptySpace = 0
 let player1 = 1
 let player2 = 2
 let currentPlayer = player1 //var to check curr player
+let pick = false
+let won = 0 //0 means ongoing game, 1 means a win, 2 is a draw
 
 //check console for array
 console.log(playBoard)
@@ -13,6 +15,15 @@ console.log(playBoard)
 function nodeClick(position) {
     playBoard[position] = currentPlayer
     console.log(playBoard)
+
+    //check current player won
+    if (calcMatch()) {
+        pick = true
+        sendAlerts()
+        return; // stop function from continuing
+    }
+
+
     //player switch
     if (currentPlayer == player1) {
         currentPlayer = player2
@@ -21,12 +32,36 @@ function nodeClick(position) {
     }
     //write send alerts
     sendAlerts()
+}
+//calculate matches
+let fakeWin = 0
 
+//assuming 5th click is a match
+function calcMatch() {
+    fakeWin++
+    if (fakeWin % 5 == 0) {
+        return true
+    } else {
+        return false
+    }
 }
 
 function sendAlerts() {
     // string concatenation to glue strings together
-    $(".row.messages").html("player " + currentPlayer + " turn ")
+    let action = " turn"
+    if (pick) {
+        action = " to pick"
+    }
+
+    if (won == 1) {
+        action = " winner"
+    }
+
+    if (won == 2) {
+        $(".row.messages").html("Its a draw!")
+    } else {
+        $(".row.messages").html("player " + currentPlayer + action)
+    }
 
 }
 
@@ -37,6 +72,9 @@ function startGame() {
     }
     //clear the board
     currentPlayer = player1
+    pick = false //currently not on pick mode
+    won = 0 //track if game has entered won state
+
     sendAlerts()
 }
 
