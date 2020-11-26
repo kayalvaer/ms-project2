@@ -13,7 +13,24 @@ console.log(playBoard)
 
 // function to receive node click to modify the play board, need parameter of what position was clicked
 function nodeClick(position) {
-    playBoard[position] = currentPlayer
+    //if not picking we placing
+    if (pick) {
+        playBoard[position] = emptySpace
+        pick = false
+        if (currentPlayer == player1) {
+            currentPlayer = player2
+        } else {
+            currentPlayer = player1
+        }
+        //write send alerts
+        sendAlerts()
+        return;
+
+    } else {
+        playBoard[position] = currentPlayer
+    }
+
+
     console.log(playBoard)
 
     //check current player won
