@@ -73,6 +73,13 @@ function calcMatch(position) {
             return true
         }
     }
+    //test +1+2
+    if ([0, 3, 6, 9, 12, 15, 18, 21].includes(position)) {
+        if (playBoard[position + 1] == currentPlayer && playBoard[position + 2] == currentPlayer) {
+            return true
+        }
+    }
+
     //corner combinations -1,-2 test
     if ([2, 5, 8, 11, 14, 17, 20, 23].includes(position)) {
         if (playBoard[position - 2] == currentPlayer && playBoard[position - 1] == currentPlayer) {
@@ -102,6 +109,37 @@ function calcMatch(position) {
         }
     }
 
+    //columns combinations
+    if ([0, 9, 21].includes(position)) {
+        if (playBoard[0] == currentPlayer && playBoard[9] == currentPlayer && playBoard[21] == currentPlayer) {
+            return true
+        }
+    }
+    if ([3, 10, 18].includes(position)) {
+        if (playBoard[3] == currentPlayer && playBoard[10] == currentPlayer && playBoard[18] == currentPlayer) {
+            return true
+        }
+    }
+    if ([6, 11, 15].includes(position)) {
+        if (playBoard[6] == currentPlayer && playBoard[11] == currentPlayer && playBoard[15] == currentPlayer) {
+            return true
+        }
+    }
+    if ([8, 12, 17].includes(position)) {
+        if (playBoard[8] == currentPlayer && playBoard[12] == currentPlayer && playBoard[17] == currentPlayer) {
+            return true
+        }
+    }
+    if ([5, 13, 20].includes(position)) {
+        if (playBoard[5] == currentPlayer && playBoard[13] == currentPlayer && playBoard[20] == currentPlayer) {
+            return true
+        }
+    }
+    if ([2, 14, 23].includes(position)) {
+        if (playBoard[2] == currentPlayer && playBoard[14] == currentPlayer && playBoard[23] == currentPlayer) {
+            return true
+        }
+    }
 }
 
 
