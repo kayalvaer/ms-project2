@@ -96,7 +96,10 @@ function nodeClick(position) {
         }
 
     } else {
-        placeToken(position) //if adjacent placing token is allowed
+        let result = placeToken(position) //if adjacent placing token is allowed
+        if (result == false) {
+            return false; //failed to correctly placToken
+        }
     }
 
 
@@ -170,7 +173,11 @@ function isAdjacent(player, position) {
 
 //place a token
 function placeToken(position) {
-
+    //player not to place token in an occupied position
+    if (playBoard[position.y][position.x] != emptySpace) {
+        alert("Bad placement")
+        return false;
+    }
     playBoard[position.y][position.x] = currentPlayer
     //select an img that is a child of class .node-1 img
 
@@ -192,6 +199,8 @@ function placeToken(position) {
         }
         $(img).attr("src", "/imgs/pexels-miguel-á-padriñán-3752033.png")
     }
+
+    return true;
 }
 
 //Calculate the win
