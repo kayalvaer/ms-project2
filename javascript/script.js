@@ -19,7 +19,7 @@ function nodeClick(position) {
         playBoard[position] = emptySpace
 
         //set source to empty, to remove token
-        let img = "#node-" + (position + 1) + " img"
+        let img = "#node-" + (position.y + 1) + "_" + (position.x + 1) + " img"
         $(img).attr("src", "")
 
 
@@ -34,9 +34,9 @@ function nodeClick(position) {
         return;
 
     } else {
-        playBoard[position] = currentPlayer
+        playBoard[position.y][position.x] = currentPlayer
         //select an img that is a child of class .node-1 img
-        let img = "#node-" + (position + 1) + " img"
+        let img = "#node-" + (position.y + 1) + "_" + (position.x + 1) + " img"
 
         if (currentPlayer == player1) {
             $(img).attr("src", "/imgs/pexels-karolina-grabowska-4397810.png")
@@ -68,78 +68,26 @@ function nodeClick(position) {
 
 //Calculate the win
 function calcMatch(position) {
-    if ([1, 4, 7, 16, 19, 22, 13, 10].includes(position)) {
-        if (playBoard[position + 1] == currentPlayer && playBoard[position - 1] == currentPlayer) {
-            return true
-        }
-    }
-    //test +1+2
-    if ([0, 3, 6, 9, 12, 15, 18, 21].includes(position)) {
-        if (playBoard[position + 1] == currentPlayer && playBoard[position + 2] == currentPlayer) {
-            return true
-        }
+    //test across combinations
+    let y1 = position.y + 1
+    let y2 = position.y + 2
+
+    //remainder functions
+    y1 = y1 % 3
+    y2 = y2 % 3
+
+    if (playBoard[y1][position.x] == currentPlayer && playBoard[y2][position.x] == currentPlayer) {
+        return true
     }
 
-    //corner combinations -1,-2 test
-    if ([2, 5, 8, 11, 14, 17, 20, 23].includes(position)) {
-        if (playBoard[position - 2] == currentPlayer && playBoard[position - 1] == currentPlayer) {
-            return true
-        }
-    }
-    //matching diagonals
-    if ([2, 5, 8].includes(position)) {
-        if (playBoard[2] == currentPlayer && playBoard[5] == currentPlayer && playBoard[8] == currentPlayer) {
-            return true
-        }
+    let x1 = position.x + 1
+    let x2 = position.x + 2
+
+    if (playBoard[position.y][x1] == currentPlayer && playBoard[position.y][x2] == currentPlayer) {
+        return true
     }
 
-    if ([17, 20, 23].includes(position)) {
-        if (playBoard[17] == currentPlayer && playBoard[20] == currentPlayer && playBoard[23] == currentPlayer) {
-            return true
-        }
-    }
-    if ([15, 18, 21].includes(position)) {
-        if (playBoard[15] == currentPlayer && playBoard[18] == currentPlayer && playBoard[21] == currentPlayer) {
-            return true
-        }
-    }
-    if ([0, 3, 6].includes(position)) {
-        if (playBoard[0] == currentPlayer && playBoard[3] == currentPlayer && playBoard[6] == currentPlayer) {
-            return true
-        }
-    }
 
-    //columns combinations
-    if ([0, 9, 21].includes(position)) {
-        if (playBoard[0] == currentPlayer && playBoard[9] == currentPlayer && playBoard[21] == currentPlayer) {
-            return true
-        }
-    }
-    if ([3, 10, 18].includes(position)) {
-        if (playBoard[3] == currentPlayer && playBoard[10] == currentPlayer && playBoard[18] == currentPlayer) {
-            return true
-        }
-    }
-    if ([6, 11, 15].includes(position)) {
-        if (playBoard[6] == currentPlayer && playBoard[11] == currentPlayer && playBoard[15] == currentPlayer) {
-            return true
-        }
-    }
-    if ([8, 12, 17].includes(position)) {
-        if (playBoard[8] == currentPlayer && playBoard[12] == currentPlayer && playBoard[17] == currentPlayer) {
-            return true
-        }
-    }
-    if ([5, 13, 20].includes(position)) {
-        if (playBoard[5] == currentPlayer && playBoard[13] == currentPlayer && playBoard[20] == currentPlayer) {
-            return true
-        }
-    }
-    if ([2, 14, 23].includes(position)) {
-        if (playBoard[2] == currentPlayer && playBoard[14] == currentPlayer && playBoard[23] == currentPlayer) {
-            return true
-        }
-    }
 }
 
 
@@ -185,7 +133,11 @@ $(document).ready(function () {
     $("#startGame").click(startGame)
     $(".node").click(function () {
         //replacing node- with to make it a number and subtracting 1 to make it start from 0
-        let node = this.id.replace("node-", "") - 1
+        let point = this.id.replace("node-", "").split("_") //spilling whats left of the node and getting the two array cordinates
+        let node = {
+            y: point[0] - 1,
+            x: point[0] - 1 //y represent numbers 1-3, x is number 1-8, subtract 1 because array start from 0
+        }
         if (started) // clicking of node only start if game is started
             nodeClick(node)
 
