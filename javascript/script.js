@@ -79,13 +79,43 @@ function calcMatch(position) {
     if (playBoard[y1][position.x] == currentPlayer && playBoard[y2][position.x] == currentPlayer) {
         return true
     }
+    //testing equality within same box, and testing if based on even numbers being activated
+    if (position.x % 2 == 0) {
+        let x1 = position.x + 1
+        let x2 = position.x + 2
+        //doing remainder function circle
+        // testing even numbers boxes
+        x1 = x1 % 8
+        x2 = x2 % 8
 
-    let x1 = position.x + 1
-    let x2 = position.x + 2
+        if (playBoard[position.y][x1] == currentPlayer && playBoard[position.y][x2] == currentPlayer) {
+            return true
+        }
 
-    if (playBoard[position.y][x1] == currentPlayer && playBoard[position.y][x2] == currentPlayer) {
-        return true
+        x1 = position.x - 1
+        x2 = position.x - 2
+
+        x1 = x1 % 8
+        x2 = x2 % 8
+
+        if (playBoard[position.y][x1] == currentPlayer && playBoard[position.y][x2] == currentPlayer) {
+            return true
+        }
+
+    } else {
+        //everyTime we have an odd number on the box we need to move up and down 1 by 1 to test
+        let x1 = position.x - 1
+        let x2 = position.x + 1
+
+        x1 = x1 % 8
+        x2 = x2 % 8
+
+        if (playBoard[position.y][x1] == currentPlayer && playBoard[position.y][x2] == currentPlayer) {
+            return true
+        }
     }
+
+
 
 
 }
