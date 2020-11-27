@@ -59,18 +59,51 @@ function nodeClick(position) {
     } else if (stage == 2) {
         //check gameState of players
         if (currentPlayer == player1) {
-            if (gameState.player1.inHand) {
+            if (gameState.player1.inHand) { //does player1 has something onHand
                 //verify if they are allowed to paste it
                 if (isAdjacent(gameState.player1, position)) {
                     placeToken(position)
+                    //clearing what is on hand
+                    gameState.player1.inHand = false
                 }
+                //
+            } else {
+
+                if (playBoard[position.y][position.x] != currentPlayer) {
+                    alert("please pick your own token")
+                    return false
+                } else {
+                    //allow them to continue
+                    gameState.player1.inHand = position
+                    //set attr on image and node
+                    let img = "#node-" + (position.y + 1) + "_" + (position.x + 1) + " img"
+                    $(img).attr("width", "25px")
+                    return true
+                }
+
             }
         } else {
             if (gameState.player2.inHand) {
                 //verify if they are allowed to paste it
                 if (isAdjacent(gameState.player2, position)) {
                     placeToken(position)
+                    //
+                    gameState.player2.inHand = false
                 }
+            } else {
+
+                if (playBoard[position.y][position.x] != currentPlayer) {
+                    alert("please pick your own token")
+                    return false
+                } else {
+                    //allow them to continue
+                    gameState.player2.inHand = position
+                    //set attr on image and node
+                    let img = "#node-" + (position.y + 1) + "_" + (position.x + 1) + " img"
+                    $(img).attr("width", "25px")
+                    return true
+                }
+
             }
         }
     } else {
@@ -97,6 +130,16 @@ function nodeClick(position) {
     //write send alerts
     sendAlerts()
 }
+//test if player movement is legal
+function isAdjacent(player, position) {
+    playBoard[player.inHand.y][player.inHand.x] = emptySpace
+    let img = "#node-" + (player.inHand.y + 1) + "_" + (player.inHand.x + 1) + " img"
+    //restore original img size
+    $(img).attr("width", "45px")
+    return true
+
+}
+
 //place a token
 function placeToken(position) {
 
@@ -106,10 +149,16 @@ function placeToken(position) {
     let img = "#node-" + (position.y + 1) + "_" + (position.x + 1) + " img"
 
     if (currentPlayer == player1) {
-        gameState.player1.owned--
+        if (stage == 1) {
+            gameState.player1.owned--
+        }
+
         $(img).attr("src", "/imgs/pexels-karolina-grabowska-4397810.png")
     } else {
-        gameState.player2.owned--
+        if (stage == 1) {
+            gameState.player2.owned--
+        }
+
         if (gameState.player2.owned == 0) { //need to suspend stage 2 if player2 made a match
             stage = 2
         }
