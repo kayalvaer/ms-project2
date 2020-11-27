@@ -48,8 +48,18 @@ function nodeClick(position) {
             //before changing player we have to make sure current player is invisible
             gameState[1].taken++
             currentPlayer = player2
+            if (gameState[1].taken == 10) {
+                won = true;
+                sendAlerts();
+                return true;
+            }
         } else {
             gameState[2].taken++
+            if (gameState[2].taken == 10) {
+                won = true;
+                sendAlerts();
+                return true;
+            }
             currentPlayer = player1
         }
         //write send alerts
@@ -65,6 +75,8 @@ function nodeClick(position) {
                 placeToken(position)
                 //clearing what is on hand
                 gameState[currentPlayer].inHand = false
+            } else {
+                return false;
             }
             //
         } else {
@@ -109,8 +121,45 @@ function nodeClick(position) {
 }
 //test if player movement is legal
 function isAdjacent(player, position) {
-    playBoard[player.inHand.y][player.inHand.x] = emptySpace
+
     let img = "#node-" + (player.inHand.y + 1) + "_" + (player.inHand.x + 1) + " img"
+
+
+    if (playBoard[position.y][position.x] != emptySpace) {
+        $(img).attr("width", "45px")
+        player.inHand = false;
+        alert("Wrong move, try again")
+        return false;
+    }
+
+    let currentPosition = player.inHand;
+
+    if (currentPosition.y == position.y) {
+        let distance = Math.abs(currentPosition.x - position.x);
+        if (!(distance == 1 || distance == 7)) {
+            $(img).attr("width", "45px")
+            player.inHand = false;
+            alert("Wrong move, try again")
+            return false;
+        }
+
+    } else {
+        let distance = Math.abs(currentPosition.y - position.y)
+        if (distance > 1) {
+            $(img).attr("width", "45px")
+            player.inHand = false;
+            alert("Wrong move, try again")
+            return false;
+        } else if (currentPosition.x != position.x) {
+            $(img).attr("width", "45px")
+            player.inHand = false;
+            alert("Wrong move, try again")
+            return false;
+        }
+    }
+
+    playBoard[player.inHand.y][player.inHand.x] = emptySpace
+
 
     //restore original img size
     $(img).attr("width", "45px")
@@ -248,7 +297,6 @@ function startGame() {
 
     stage = 1
 
-    //make gameState an array (debug)
     gameState = [0,
         {
             owned: 12,
