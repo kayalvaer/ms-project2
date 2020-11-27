@@ -9,17 +9,17 @@ let pick = false
 let won = 0 //0 means ongoing game, 1 means a win, 2 is a draw
 let started = false //check if game is started
 let stage = 1 //placing of tokens ,2 is moving token
-let gameState = {
-    player1: {
+let gameState = [0,
+    {
         owned: 12,
         taken: 0
     },
-    player2: {
+    {
         owned: 12,
         taken: 0
     }
 
-}
+]
 
 //check console for array
 console.log(playBoard)
@@ -46,10 +46,10 @@ function nodeClick(position) {
         pick = false
         if (currentPlayer == player1) {
             //before changing player we have to make sure current player is invisible
-            gameState.player1.taken++
+            gameState[1].taken++
             currentPlayer = player2
         } else {
-            gameState.player2.taken++
+            gameState[2].taken++
             currentPlayer = player1
         }
         //write send alerts
@@ -58,54 +58,31 @@ function nodeClick(position) {
 
     } else if (stage == 2) {
         //check gameState of players
-        if (currentPlayer == player1) {
-            if (gameState.player1.inHand) { //does player1 has something onHand
-                //verify if they are allowed to paste it
-                if (isAdjacent(gameState.player1, position)) {
-                    placeToken(position)
-                    //clearing what is on hand
-                    gameState.player1.inHand = false
-                }
-                //
-            } else {
 
-                if (playBoard[position.y][position.x] != currentPlayer) {
-                    alert("please pick your own token")
-                    return false
-                } else {
-                    //allow them to continue
-                    gameState.player1.inHand = position
-                    //set attr on image and node
-                    let img = "#node-" + (position.y + 1) + "_" + (position.x + 1) + " img"
-                    $(img).attr("width", "25px")
-                    return true
-                }
-
+        if (gameState[currentPlayer].inHand) { //does player1 has something onHand
+            //verify if they are allowed to paste it
+            if (isAdjacent(gameState[currentPlayer], position)) {
+                placeToken(position)
+                //clearing what is on hand
+                gameState[currentPlayer].inHand = false
             }
+            //
         } else {
-            if (gameState.player2.inHand) {
-                //verify if they are allowed to paste it
-                if (isAdjacent(gameState.player2, position)) {
-                    placeToken(position)
-                    //
-                    gameState.player2.inHand = false
-                }
+
+            if (playBoard[position.y][position.x] != currentPlayer) {
+                alert("please pick your own token")
+                return false
             } else {
-
-                if (playBoard[position.y][position.x] != currentPlayer) {
-                    alert("please pick your own token")
-                    return false
-                } else {
-                    //allow them to continue
-                    gameState.player2.inHand = position
-                    //set attr on image and node
-                    let img = "#node-" + (position.y + 1) + "_" + (position.x + 1) + " img"
-                    $(img).attr("width", "25px")
-                    return true
-                }
-
+                //allow them to continue
+                gameState[currentPlayer].inHand = position
+                //set attr on image and node
+                let img = "#node-" + (position.y + 1) + "_" + (position.x + 1) + " img"
+                $(img).attr("width", "25px")
+                return true
             }
+
         }
+
     } else {
         placeToken(position) //if adjacent placing token is allowed
     }
@@ -134,8 +111,10 @@ function nodeClick(position) {
 function isAdjacent(player, position) {
     playBoard[player.inHand.y][player.inHand.x] = emptySpace
     let img = "#node-" + (player.inHand.y + 1) + "_" + (player.inHand.x + 1) + " img"
+
     //restore original img size
     $(img).attr("width", "45px")
+    $(img).attr("src", "")
     return true
 
 }
@@ -150,16 +129,16 @@ function placeToken(position) {
 
     if (currentPlayer == player1) {
         if (stage == 1) {
-            gameState.player1.owned--
+            gameState[1].owned--
         }
 
         $(img).attr("src", "/imgs/pexels-karolina-grabowska-4397810.png")
     } else {
         if (stage == 1) {
-            gameState.player2.owned--
+            gameState[2].owned--
         }
 
-        if (gameState.player2.owned == 0) { //need to suspend stage 2 if player2 made a match
+        if (gameState[2].owned == 0) { //need to suspend stage 2 if player2 made a match
             stage = 2
         }
         $(img).attr("src", "/imgs/pexels-miguel-á-padriñán-3752033.png")
@@ -241,10 +220,10 @@ function sendAlerts() {
     } else {
         $(".row.messages").html("player " + currentPlayer + action)
     }
-    $("#p1-owned").html(gameState.player1.owned)
-    $("#p1-taken").html(gameState.player1.taken)
-    $("#p2-owned").html(gameState.player2.owned)
-    $("#p2-taken").html(gameState.player2.taken)
+    $("#p1-owned").html(gameState[1].owned)
+    $("#p1-taken").html(gameState[1].taken)
+    $("#p2-owned").html(gameState[2].owned)
+    $("#p2-taken").html(gameState[2].taken)
 }
 
 function startGame() {
@@ -269,21 +248,22 @@ function startGame() {
 
     stage = 1
 
-    gameState = {
-        player1: {
+    //make gameState an array (debug)
+    gameState = [0,
+        {
             owned: 12,
             taken: 0
         },
-        player2: {
+        {
             owned: 12,
             taken: 0
         }
-    }
+    ]
 
-    $("#p1-owned").html(gameState.player1.owned)
-    $("#p1-taken").html(gameState.player1.taken)
-    $("#p2-owned").html(gameState.player2.owned)
-    $("#p2-taken").html(gameState.player2.taken)
+    $("#p1-owned").html(gameState[1].owned)
+    $("#p1-taken").html(gameState[1].taken)
+    $("#p2-owned").html(gameState[2].owned)
+    $("#p2-taken").html(gameState[2].taken)
 
     sendAlerts()
 }
