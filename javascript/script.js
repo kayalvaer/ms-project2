@@ -164,8 +164,13 @@ function sendAlerts() {
 
 function startGame() {
     //push emptySpace to an array
-    for (let i = 0; i < 24; i++) {
-        playBoard.push(emptySpace)
+    for (let i = 0; i < 3; i++) {
+        //creating a two dimensional array, playBoard will have only 3 arrays of 8 points
+        let points = []
+        for (let j = 0; j < 8; j++) {
+            points.push(emptySpace)
+        }
+        playBoard.push(points)
     }
     //clear the board
     currentPlayer = player1
