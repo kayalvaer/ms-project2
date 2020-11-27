@@ -8,6 +8,18 @@ let currentPlayer = player1 //var to check curr player
 let pick = false
 let won = 0 //0 means ongoing game, 1 means a win, 2 is a draw
 let started = false //check if game is started
+let stage = 1 //placing of tokens ,2 is moving token
+let gameState = {
+    player1: {
+        owned: 12,
+        taken: 0
+    },
+    player2: {
+        owned: 12,
+        taken: 0
+    }
+
+}
 
 //check console for array
 console.log(playBoard)
@@ -16,7 +28,15 @@ console.log(playBoard)
 function nodeClick(position) {
     //if not picking we placing
     if (pick) {
-        playBoard[position] = emptySpace
+        //validation that a player dont pick empty or own token
+        let currentToken = playBoard[position.y][position.x]
+        if (currentToken == emptySpace || currentToken == currentPlayer) { // validation failed
+            return false
+        }
+
+
+        playBoard[position.y][position.x] = emptySpace
+
 
         //set source to empty, to remove token
         let img = "#node-" + (position.y + 1) + "_" + (position.x + 1) + " img"
@@ -25,24 +45,36 @@ function nodeClick(position) {
 
         pick = false
         if (currentPlayer == player1) {
+            //before changing player we have to make sure current player is invisible
+            gameState.player1.taken++
             currentPlayer = player2
         } else {
+            gameState.player2.taken++
             currentPlayer = player1
         }
         //write send alerts
         sendAlerts()
         return;
 
-    } else {
-        playBoard[position.y][position.x] = currentPlayer
-        //select an img that is a child of class .node-1 img
-        let img = "#node-" + (position.y + 1) + "_" + (position.x + 1) + " img"
-
+    } else if (stage == 2) {
+        //check gameState of players
         if (currentPlayer == player1) {
-            $(img).attr("src", "/imgs/pexels-karolina-grabowska-4397810.png")
+            if (gameState.player1.inHand) {
+                //verify if they are allowed to paste it
+                if (isAdjacent(gameState.player1, position)) {
+                    placeToken(position)
+                }
+            }
         } else {
-            $(img).attr("src", "/imgs/pexels-miguel-á-padriñán-3752033.png")
+            if (gameState.player2.inHand) {
+                //verify if they are allowed to paste it
+                if (isAdjacent(gameState.player2, position)) {
+                    placeToken(position)
+                }
+            }
         }
+    } else {
+        placeToken(position) //if adjacent placing token is allowed
     }
 
 
@@ -64,6 +96,25 @@ function nodeClick(position) {
     }
     //write send alerts
     sendAlerts()
+}
+//place a token
+function placeToken(position) {
+
+    playBoard[position.y][position.x] = currentPlayer
+    //select an img that is a child of class .node-1 img
+
+    let img = "#node-" + (position.y + 1) + "_" + (position.x + 1) + " img"
+
+    if (currentPlayer == player1) {
+        gameState.player1.owned--
+        $(img).attr("src", "/imgs/pexels-karolina-grabowska-4397810.png")
+    } else {
+        gameState.player2.owned--
+        if (gameState.player2.owned == 0) { //need to suspend stage 2 if player2 made a match
+            stage = 2
+        }
+        $(img).attr("src", "/imgs/pexels-miguel-á-padriñán-3752033.png")
+    }
 }
 
 //Calculate the win
@@ -124,6 +175,10 @@ function calcMatch(position) {
 function sendAlerts() {
     // string concatenation to glue strings together
     let action = " turn"
+    //changing the action to say move instead of turn
+    if (stage == 2) {
+        action = " to move"
+    }
     if (pick) {
         action = " to pick"
     }
@@ -137,7 +192,10 @@ function sendAlerts() {
     } else {
         $(".row.messages").html("player " + currentPlayer + action)
     }
-
+    $("#p1-owned").html(gameState.player1.owned)
+    $("#p1-taken").html(gameState.player1.taken)
+    $("#p2-owned").html(gameState.player2.owned)
+    $("#p2-taken").html(gameState.player2.taken)
 }
 
 function startGame() {
@@ -147,6 +205,10 @@ function startGame() {
         let points = []
         for (let j = 0; j < 8; j++) {
             points.push(emptySpace)
+            //clear board when clicking start
+            let img = "#node-" + (i + 1) + "_" + (j + 1) + " img"
+            $(img).attr("src", "")
+
         }
         playBoard.push(points)
     }
@@ -156,6 +218,24 @@ function startGame() {
     won = 0 //track if game has entered won state
     started = true //starts the game
 
+    stage = 1
+
+    gameState = {
+        player1: {
+            owned: 12,
+            taken: 0
+        },
+        player2: {
+            owned: 12,
+            taken: 0
+        }
+    }
+
+    $("#p1-owned").html(gameState.player1.owned)
+    $("#p1-taken").html(gameState.player1.taken)
+    $("#p2-owned").html(gameState.player2.owned)
+    $("#p2-taken").html(gameState.player2.taken)
+
     sendAlerts()
 }
 
@@ -164,9 +244,10 @@ $(document).ready(function () {
     $(".node").click(function () {
         //replacing node- with to make it a number and subtracting 1 to make it start from 0
         let point = this.id.replace("node-", "").split("_") //spilling whats left of the node and getting the two array cordinates
+
         let node = {
             y: point[0] - 1,
-            x: point[0] - 1 //y represent numbers 1-3, x is number 1-8, subtract 1 because array start from 0
+            x: point[1] - 1 //y represent numbers 1-3, x is number 1-8, subtract 1 because array start from 0
         }
         if (started) // clicking of node only start if game is started
             nodeClick(node)
