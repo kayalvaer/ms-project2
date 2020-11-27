@@ -26,6 +26,10 @@ console.log(playBoard)
 
 // function to receive node click to modify the play board, need parameter of what position was clicked
 function nodeClick(position) {
+
+    if (won) {
+        return false
+    }
     //if not picking we placing
     if (pick) {
         //validation that a player dont pick empty or own token
@@ -232,8 +236,11 @@ function calcMatch(position) {
         x1 = position.x - 1
         x2 = position.x - 2
 
-        x1 = x1 % 8
-        x2 = x2 % 8
+
+        //debugging neg circle failing
+        //if x2 is less than 0 , then we apply x2 as 0
+        x1 = x1 < 0 ? x1 + 8 : x1 % 8
+        x2 = x2 < 0 ? x2 + 8 : x2 % 8
 
         if (playBoard[position.y][x1] == currentPlayer && playBoard[position.y][x2] == currentPlayer) {
             return true
@@ -244,8 +251,8 @@ function calcMatch(position) {
         let x1 = position.x - 1
         let x2 = position.x + 1
 
-        x1 = x1 % 8
-        x2 = x2 % 8
+        x1 = x1 < 0 ? x1 + 8 : x1 % 8
+        x2 = x2 < 0 ? x2 + 8 : x2 % 8
 
         if (playBoard[position.y][x1] == currentPlayer && playBoard[position.y][x2] == currentPlayer) {
             return true
