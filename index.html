@@ -5,17 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- bootstrap css-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- google-fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|VT323" rel="stylesheet">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
     </script>
+
+    <!-- bootstrap css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--bootstrap js-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- google-fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|VT323" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css"
         type="text/css" />
+    <!-----font awesome ----->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous" />
+
+
     <title>Morabaraba Game</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 
@@ -39,7 +47,7 @@
         <div class="collapse navbar-collapse blink-title">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a data-toggle="modal" href="#about">Steps To Play</a>
+                    <a data-toggle="modal" data-target="#about">Steps To Play</a>
                 </li>
                 <li>
                     <a href="https://github.com/Kayalvaer/ms-project2/blob/master/index.html" target="_blank">
@@ -135,7 +143,7 @@
 
         <!----------------Player2 ------------------->
 
-        <div class="col-xs-3 player-id-2" style="opacity:0.25;">
+        <div class="col-xs-3 player-id-2">
             <div class="row">
                 <div class="col-xs-12 player-id">Player 2</div>
             </div>
@@ -152,22 +160,6 @@
     </div>
     </div>
 
-    <!-- buttons -->
-    <!--   <div class="row buttons">
-        <div class="col-xs-12">
-            <button class="btn" type="button" name="cancel" id="cancel">Cancel Selection</button>
-        </div>
-    </div> -->
-
-
-    <!--  container -->
-    <!--   <div class="container text-center winner-page" hidden="true">
-        <div class="row title">
-            <h1>MORABARABA GAME</h1>
-        </div>
-        <div class="winner-message"></div>
-        <button class="btn play-again">Play Again</button>
-    </div> -->
 
     <!------------Play Game Steps info ---------->
 
@@ -246,9 +238,21 @@
             </div>
         </div>
     </div>
+    <p class="c-msg">Copyright &#169 Kay Alvær
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </p>
+
+    <!-- sounds -->
+    <audio id="placeTokenAudio">
+        <source src="zapsplat_animals_cow_pat_poop_land_ground_002_44101.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="startAudio">
+        <source src="Blastwave_FX_CowMoo_SFXB.214.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- game js -->
-
     <script src="javascript/script.js"></script>
 
 

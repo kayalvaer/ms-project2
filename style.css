@@ -41,18 +41,7 @@ ul.nav.navbar-nav.navbar-right {
     }
 }
 
-/* .navbar-default .navbar-nav>li>a>i.fa-twitter {
-    color: #d47b06;
-}
 
-.navbar-default .navbar-nav>li>a>i.fa-github {
-    color: #242121;
-}
-
-
-.container {
-    bottom: 100%;
-} */
 
 /* Board */
 
@@ -60,6 +49,7 @@ ul.nav.navbar-nav.navbar-right {
     .game-wrapper {
         height: 400px;
         width: 400px;
+        bottom: 100%;
     }
 
     /*   .outer-box {
@@ -68,7 +58,16 @@ ul.nav.navbar-nav.navbar-right {
     } */
 }
 
+/* copyright */
 
+.c-msg {
+    color: #d47b06;
+    margin: auto;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+
+}
 
 .rec-outer {
     border-width: 5px;
@@ -334,30 +333,6 @@ ul.nav.navbar-nav.navbar-right {
 
 }
 
-/* corner line */
-
-/* .vertical-top-left {
-    border-right-width: 5px;
-    border-right-color: black;
-    border-right-style: solid;
-    width: 50%;
-    height: 58%;
-    position: relative;
-    float: left;
-    box-sizing: border-box;
-    margin-left: 2.5px;
-    transform: rotate(180deg) translateY(51px) translateX(5px);
-} */
-
-/* Player tokens */
-
-/* .player-1 {
-    color: #0000ff;
-}
-
-.player-2 {
-    color: #e45015;
-} */
 
 
 .player-1 .player-id-1 {
@@ -433,10 +408,21 @@ ul.nav.navbar-nav.navbar-right {
 /* Alert box */
 
 .messages {
-    border-width: 15px;
-    border-radius: 20px;
-    border-style: solid;
-    margin-bottom: 20px;
-    color: #bbbfbf;
-    padding-top: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 1.0s steps(40, end);
+
+}
+
+/* count sections */
+.row {
+    margin: 20px 20px;
+}
+
+/* modal styling */
+
+.modal {
+    background-color: wheat;
 }

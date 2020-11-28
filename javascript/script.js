@@ -32,7 +32,7 @@ function nodeClick(position) {
     }
     //if not picking we placing
     if (pick) {
-        //validation that a player dont pick empty or own token
+        //validation that a player do not pick empty or own token
         let currentToken = playBoard[position.y][position.x]
         if (currentToken == emptySpace || currentToken == currentPlayer) { // validation failed
             return false
@@ -40,6 +40,7 @@ function nodeClick(position) {
 
 
         playBoard[position.y][position.x] = emptySpace
+        $("#startAudio").get(0).play()
 
 
         //set source to empty, to remove token
@@ -183,6 +184,8 @@ function placeToken(position) {
         return false;
     }
     playBoard[position.y][position.x] = currentPlayer
+    //make playToken audio
+    $("#placeTokenAudio").get(0).play()
     //select an img that is a child of class .node-1 img
 
     let img = "#node-" + (position.y + 1) + "_" + (position.x + 1) + " img"
@@ -329,6 +332,7 @@ function startGame() {
     $("#p1-taken").html(gameState[1].taken)
     $("#p2-owned").html(gameState[2].owned)
     $("#p2-taken").html(gameState[2].taken)
+    $("#startAudio").get(0).play()
 
     sendAlerts()
 }
