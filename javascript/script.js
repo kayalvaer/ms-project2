@@ -293,6 +293,7 @@ function sendAlerts() {
 
 function startGame() {
     //push emptySpace to an array
+    playBoard = [] //debug start button
     for (let i = 0; i < 3; i++) {
         //creating a two dimensional array, playBoard will have only 3 arrays of 8 points
         let points = []
