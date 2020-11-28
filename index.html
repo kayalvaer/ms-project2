@@ -34,7 +34,7 @@
     <!------------Navigation------------->
 
 
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default navbar-fixed-top" id="gameNav" role="navigation">
         <div class="container"></div>
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -42,16 +42,39 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand blink-title" href="#">Morabaraba Game</a>
+            <a class="navbar-brand blink-title" href="#gameNav">Morabaraba Game</a>
         </div>
         <div class="collapse navbar-collapse blink-title">
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#history" class="abtInfo">About</a>
+                    <div class="info">
+                        <p>
+                            Most commonly played in Southern Africa especially in Botswana, South Africa and Lesotho,
+                            Morabaraba is a traditional two-player
+                            strategy board game.It is reported that Morabaraba boards carved in rock are dated to be at
+                            least 800 years old, therefore indicating
+                            a non-European origin.
+                            <br>
+                            <br>
+                            It has some similarities to the Twelve Men's Morris, a variation on
+                            the Roman board game Nine Men's Morris.
+                            In this European game, the counters are most commonly referred to as men (mills), but in the
+                            South African game the counters are referred
+                            to as cows, the game being particularly popular amongst youth especially young men and those
+                            herding cattle.
+                        </p>
+                        <div class="back-btn">
+                            <button class="btn btn-primary" data-dismiss="modal" href="#">Back</button>
+                        </div>
+                    </div>
+                </li>
                 <li>
                     <a data-toggle="modal" data-target="#about">Steps To Play</a>
                 </li>
                 <li>
                     <a href="https://github.com/Kayalvaer/ms-project2/blob/master/index.html" target="_blank">
-                        <i class="fa fa-github blink-title"></i>
+                        <i class="fa fa-github blink-alerts"></i>
                         GitHub
                     </a>
                 </li>
@@ -176,20 +199,6 @@
                     <h3 class="modal-title">Steps To Play</h3>
                 </div>
                 <div class="modal-body">
-                    <h4>About</h4>
-                    <p>
-                        Most commonly played in Southern Africa especially in Botswana, South Africa and Lesotho,
-                        Morabaraba is a traditional two-player
-                        strategy board game.It is reported that Morabaraba boards carved in rock are dated to be at
-                        least 800 years old, therefore indicating
-                        a non-European origin.It has some similarities to the Twelve Men's Morris, a variation on
-                        the Roman board game Nine Men's Morris.
-                        In this European game the counters are most commonly referred to as men (mills), but in the
-                        South African game the counters are referred
-                        to as cows, the game being particularly popular amongst youth especially young men and those
-                        herding cattle.
-                    </p>
-                    <br>
                     <h4>Setup</h4>
 
                     <ul>
@@ -245,6 +254,12 @@
     </audio>
     <audio id="startAudio">
         <source src="Blastwave_FX_CowMoo_SFXB.214.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="introAudio">
+        <source src="zapsplat_musical_drum_tom_hit_strike_short_pattern_rhythm_mid_low_001_58457.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="winAudio">
+        <source src="multimedia_signaure_warm_soft_marimba_pad_positive.mp3" type="audio/mpeg">
     </audio>
 
     <!-- game js -->

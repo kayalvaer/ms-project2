@@ -134,7 +134,7 @@ function isAdjacent(player, position) {
 
 
     if (playBoard[position.y][position.x] != emptySpace) {
-        $(img).attr("width", "45px")
+        $(img).attr("width", "55px")
         player.inHand = false;
         alert("Wrong move, try again")
         return false;
@@ -145,7 +145,7 @@ function isAdjacent(player, position) {
     if (currentPosition.y == position.y) {
         let distance = Math.abs(currentPosition.x - position.x);
         if (!(distance == 1 || distance == 7)) {
-            $(img).attr("width", "45px")
+            $(img).attr("width", "55px")
             player.inHand = false;
             alert("Wrong move, try again")
             return false;
@@ -170,7 +170,7 @@ function isAdjacent(player, position) {
 
 
     //restore original img size
-    $(img).attr("width", "45px")
+    $(img).attr("width", "55px")
     $(img).attr("src", "")
     return true
 
@@ -180,7 +180,7 @@ function isAdjacent(player, position) {
 function placeToken(position) {
     //player not to place token in an occupied position
     if (playBoard[position.y][position.x] != emptySpace) {
-        alert("Bad placement")
+        alert("No way! Bad placement")
         return false;
     }
     playBoard[position.y][position.x] = currentPlayer
@@ -195,7 +195,7 @@ function placeToken(position) {
             gameState[1].owned--
         }
 
-        $(img).attr("src", "/imgs/pexels-karolina-grabowska-4397810.png")
+        $(img).attr("src", "imgs/pexels-karolina-grabowska-4397810.png")
     } else {
         if (stage == 1) {
             gameState[2].owned--
@@ -204,7 +204,7 @@ function placeToken(position) {
         if (gameState[2].owned == 0) { //need to suspend stage 2 if player2 made a match
             stage = 2
         }
-        $(img).attr("src", "/imgs/pexels-miguel-á-padriñán-3752033.png")
+        $(img).attr("src", "/imgs/pexels-peter-dÃ¶pper-2363901.png")
     }
 
     return true;
@@ -280,11 +280,12 @@ function sendAlerts() {
     }
 
     if (won == 1) {
-        action = " winner"
+        action = " wins WOOHOO!, Press Start To Play again"
     }
 
+
     if (won == 2) {
-        $(".row.messages").html("Its a draw!")
+        $(".row.messages").html("Its a draw! Press Start To Play again")
     } else {
         $(".row.messages").html("player " + currentPlayer + action)
     }
@@ -292,6 +293,8 @@ function sendAlerts() {
     $("#p1-taken").html(gameState[1].taken)
     $("#p2-owned").html(gameState[2].owned)
     $("#p2-taken").html(gameState[2].taken)
+    $("#winAudio").get(0).play()
+
 }
 
 function startGame() {
@@ -308,6 +311,7 @@ function startGame() {
 
         }
         playBoard.push(points)
+
     }
     //clear the board
     currentPlayer = player1
@@ -353,3 +357,21 @@ $(document).ready(function () {
     })
 
 })
+
+/* collapsible about information */
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible*/
+
+var abt = document.getElementsByClassName("abtInfo");
+var i;
+
+for (i = 0; i < abt.length; i++) {
+    abt[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var info = this.nextElementSibling;
+        if (info.style.display === "block") {
+            info.style.display = "none";
+        } else {
+            info.style.display = "block";
+        }
+    });
+}

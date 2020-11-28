@@ -7,9 +7,11 @@ body {
     color: #000000e3;
 }
 
-.node img {
-    right: 40px;
-    top: 40px;
+img {
+    position: absolute;
+    margin-left: -1rem;
+    margin-top: -1.5rem;
+
 }
 
 /* modal ul & li */
@@ -52,13 +54,37 @@ ul.nav.navbar-nav.navbar-right {
     0%,
 
     50% {
-        color: rgb(97, 240, 40);
+        color: #0000ff;
     }
 }
 
+/*abt button */
+.abtInfo {
+
+    color: #ffffff;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active,
+.abtInfo:hover {
+    background-color: #555;
+}
 
 
-/* Board */
+.info {
+    overflow: hidden;
+    padding: 0 18px;
+    display: none;
+    background-color: #f1f1f1;
+}
+
+/* media queries */
 
 @media screen and (min-width: 992px) {
     .game-wrapper {
@@ -67,22 +93,14 @@ ul.nav.navbar-nav.navbar-right {
         bottom: 100%;
     }
 
-    /*   .outer-box {
+    .outer-box {
         height: 400px;
         width: 400px;
-    } */
+    }
 }
 
-/* copyright */
 
-.c-msg {
-    color: #d47b06;
-    margin: auto;
-    text-align: center;
-    line-height: 40px;
-    font-size: 16px;
-
-}
+/* Board */
 
 .rec-outer {
     border-width: 5px;
@@ -106,8 +124,7 @@ ul.nav.navbar-nav.navbar-right {
             rgba(0, 0, 0, 1) 50%,
             rgba(0, 0, 0, 0) calc(50% + 2.8px),
             rgba(0, 0, 0, 0) 100%);
-
-
+    background-color: rgb(197, 125, 66);
 
 }
 
@@ -133,7 +150,7 @@ ul.nav.navbar-nav.navbar-right {
     margin: auto;
     margin-top: 24%;
     box-sizing: border-box;
-    background-color: rgb(197, 125, 66);
+    background-color: #c57d42;
 
 }
 
@@ -153,10 +170,10 @@ ul.nav.navbar-nav.navbar-right {
 
 
 
-/* .pins {
+.controls {
     clear: both;
     padding-top: 20px;
-} */
+}
 
 /* input node*/
 
@@ -170,7 +187,7 @@ ul.nav.navbar-nav.navbar-right {
     height: 30px;
     width: 30px;
     box-sizing: border-box;
-    background: #cac7c7;
+    background: #d6d6f8;
 }
 
 .node:hover {
@@ -309,6 +326,7 @@ ul.nav.navbar-nav.navbar-right {
     bottom: 8.5%;
 
 
+
 }
 
 .line-bottom {
@@ -406,19 +424,13 @@ ul.nav.navbar-nav.navbar-right {
 
     0%,
     50% {
-        color: rgb(255, 245, 158);
+        color: rgb(228, 80, 21);
     }
 }
 
 /* selected tokens */
 
-.selected {
-    animation: blink-node 1s infinite;
-}
 
-.selected-mills {
-    animation: blink-node 1s 3;
-}
 
 /* Alert box */
 
@@ -447,6 +459,17 @@ ul.nav.navbar-nav.navbar-right {
     50% {
         color: #ff0000;
     }
+}
+
+/* copyright */
+
+.c-msg {
+    color: #d47b06;
+    margin: auto;
+    text-align: center;
+    line-height: 40px;
+    font-size: 80%;
+    bottom: 10%;
 }
 
 /* count sections */
