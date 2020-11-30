@@ -58,7 +58,7 @@ ul.nav.navbar-nav.navbar-right {
 
 /*abt button */
 .abtInfo {
-  color: #ffffff;
+  color: #cac7c7;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -70,23 +70,25 @@ ul.nav.navbar-nav.navbar-right {
 
 .active,
 .abtInfo:hover {
-  background-color: #555;
+  background-color: #5d5ddb;
 }
 
 .info {
   overflow: hidden;
   padding: 0 18px;
   display: none;
-  background-color: #f1f1f1;
+  background-color: #cac7c7;
 }
 
 /* media queries */
 
 @media screen and (min-width: 1684px) {
   .rec-outer {
-    outline: 5px solid red;
     margin-left: 20%;
   }
+  /* button#startGame.btn {
+    margin-right: 20%;
+  } */
 }
 
 @media screen and (min-width: 393px) {
@@ -96,9 +98,9 @@ ul.nav.navbar-nav.navbar-right {
   .row.game {
     margin-left: 6%;
   }
-  button#startGame.btn {
+  /* button#startGame.btn {
     margin-right: 20%;
-  }
+  } */
 
   /*  .row.messages {
     width: 100%;
@@ -117,7 +119,6 @@ ul.nav.navbar-nav.navbar-right {
   }
 
   .rec-outer {
-    outline: 5px solid red;
     transform: translateX(2%);
   }
 
@@ -125,7 +126,6 @@ ul.nav.navbar-nav.navbar-right {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    outline: 10px solid red;
     gap: 3rem;
   }
 
@@ -483,7 +483,7 @@ ul.nav.navbar-nav.navbar-right {
 }
 
 .col-xs-3 .player-id-2 {
-  color: #e45015;
+  color: #d47b06;
   font-size: 22px;
 }
 
@@ -522,7 +522,7 @@ ul.nav.navbar-nav.navbar-right {
   justify-content: center;
   font-size: 50px;
   margin-top: 0%;
-  color: #284df0;
+  color: #0000ff;
   margin-bottom: 1%;
   z-index: 1;
   cursor: pointer;
@@ -617,7 +617,7 @@ ul.nav.navbar-nav.navbar-right {
 /* modal styling */
 
 .modal {
-  background-color: #f5deb3;
+  background-color: #cac7c7;
 }
 
 /* responsive */
