@@ -194,8 +194,8 @@ function placeToken(position) {
         if (stage == 1) {
             gameState[1].owned--
         }
-
-        $(img).attr("src", "imgs/pexels-karolina-grabowska-4397810.png")
+        //cocaCola bottle cap image
+        $(img).attr("src", "assets/imgs/pexels-karolina-grabowska-4397810.png", alt = "red bottle-cap")
     } else {
         if (stage == 1) {
             gameState[2].owned--
@@ -204,7 +204,8 @@ function placeToken(position) {
         if (gameState[2].owned == 0) { //need to suspend stage 2 if player2 made a match
             stage = 2
         }
-        $(img).attr("src", "/imgs/pexels-peter-dÃ¶pper-2363901.png")
+        //stone image
+        $(img).attr("src", "assets/imgs/pexels-peter-dÃ¶pper-2363901.png", alt = "stone image")
     }
 
     return true;

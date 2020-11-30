@@ -90,14 +90,26 @@ ul.nav.navbar-nav.navbar-right {
 
 /* media queries */
 
+@media screen and (min-width: 1280px) {
+    .rec-outer {
+        outline: 5px solid red;
+        /*  margin-left: 14rem; */
+
+    }
+}
+
 @media screen and (min-width: 760px) {
-    /* 
+
     .rec-outer,
     .rec-middle,
     .rec-inner {
-        display: block;
         outline: 5px solid #adff2f;
-        margin: 0 auto;
+
+    }
+
+    .rec-outer {
+        outline: 5px solid red;
+        transform: translateX(2%);
     }
 
 
@@ -105,7 +117,9 @@ ul.nav.navbar-nav.navbar-right {
     .row.game {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
+        outline: 10px solid red;
+        gap: 3rem;
     }
 
     .col-xs-3.player-id-1,
@@ -127,7 +141,7 @@ ul.nav.navbar-nav.navbar-right {
     p.c-msg {
         text-align: center;
 
-    } */
+    }
 }
 
 
@@ -158,6 +172,7 @@ ul.nav.navbar-nav.navbar-right {
 
     .row.game {
         margin-right: 1px;
+
     }
 
     .row {
@@ -567,6 +582,7 @@ ul.nav.navbar-nav.navbar-right {
     margin-bottom: 20px;
     border: 3px solid #cac7c7;
 
+
 }
 
 .alertMsgs {
@@ -579,7 +595,18 @@ ul.nav.navbar-nav.navbar-right {
     z-index: 1;
     cursor: pointer;
     color: #ff0000;
+    transform: translateX(100rem);
+    animation: slideIn 0.8s forwards;
+    animation-delay: 0.3s;
 
+}
+
+@keyframes slideIn {
+    from {}
+
+    to {
+        transform: translateX(0);
+    }
 }
 
 @keyframes blink {
