@@ -51,9 +51,11 @@ ul.nav.navbar-nav.navbar-right {
 }
 
 
-@-webkit-keyframes blink-title {
+@keyframes blink-title {
 
-    0%,
+    0% {
+        opacity: 0;
+    }
 
     50% {
         color: #0000ff;
@@ -528,16 +530,30 @@ ul.nav.navbar-nav.navbar-right {
     justify-content: center;
     font-size: 50px;
     margin-top: 0%;
-    animation: blink-start 0.5s 3;
     color: #284df0;
     margin-bottom: 1%;
+    animation: blink-start 1s linear infinite;
+    z-index: 1;
+    cursor: pointer;
+
 }
 
-@-webkit-keyframes blink-start {
+@keyframes blink-start {
 
-    0%,
+    0% {
+        opacity: 0;
+    }
+
     50% {
-        color: rgb(228, 80, 21);
+        opacity: 0.5;
+    }
+
+    75% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
 
@@ -560,8 +576,6 @@ ul.nav.navbar-nav.navbar-right {
     white-space: nowrap;
     margin: 0 auto;
     letter-spacing: .15em;
-    /*  animation: blink-alerts 1s 3; */
-
     position: relative;
     animation: blink 1s linear infinite;
     z-index: 1;
@@ -594,13 +608,7 @@ ul.nav.navbar-nav.navbar-right {
 
 
 
-@-webkit-keyframes blink-alerts {
 
-    0%,
-    50% {
-        color: #ff0000;
-    }
-}
 
 /* copyright */
 
