@@ -92,7 +92,7 @@ function nodeClick(position) {
             } else {
                 //allow them to continue
                 gameState[currentPlayer].inHand = position
-                //set attr on image and node
+                //set/adjust attr on image and node
                 let img = "#node-" + (position.y + 1) + "_" + (position.x + 1) + " img"
                 $(img).attr("width", "25px")
                 return true
@@ -134,7 +134,7 @@ function isAdjacent(player, position) {
 
 
     if (playBoard[position.y][position.x] != emptySpace) {
-        $(img).attr("width", "55px")
+        $(img).attr("width", "45px")
         player.inHand = false;
         alert("Wrong move, try again")
         return false;
@@ -145,7 +145,7 @@ function isAdjacent(player, position) {
     if (currentPosition.y == position.y) {
         let distance = Math.abs(currentPosition.x - position.x);
         if (!(distance == 1 || distance == 7)) {
-            $(img).attr("width", "55px")
+            $(img).attr("width", "45px")
             player.inHand = false;
             alert("Wrong move, try again")
             return false;
@@ -170,7 +170,7 @@ function isAdjacent(player, position) {
 
 
     //restore original img size
-    $(img).attr("width", "55px")
+    $(img).attr("width", "45px")
     $(img).attr("src", "")
     return true
 
@@ -204,7 +204,7 @@ function placeToken(position) {
         if (gameState[2].owned == 0) { //need to suspend stage 2 if player2 made a match
             stage = 2
         }
-        $(img).attr("src", "/imgs/pexels-peter-dÃ¶pper-2363901.png")
+        $(img).attr("src", "/imgs/pexels-peter-dÃ¶pper-2363901.png")
     }
 
     return true;
