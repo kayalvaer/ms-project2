@@ -18,7 +18,7 @@ build an interactive front-end site which responds to the users' actions using H
 
 **Disclaimer:** The Morabaraba Game is developed for educational purposes only.
 
-**[View project Github repository here.](https://github.com/Kayalvaer/ms-project2.git)**
+**[View project Github repository here.](https://kayalvaer.github.io/ms-project2/.)**
 **[View live project here.](http://kayalvaer.no/New-MS2/index.html)**
 
 ---
