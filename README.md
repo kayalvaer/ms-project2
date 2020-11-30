@@ -25,29 +25,6 @@ build an interactive front-end site which responds to the users' actions using H
 
 ## Table of Contents
 
-<!--
-- [UX Design](#ux-design)
-  - [Design Process](#design-process)
-    - [Strategy Plan](#strategy-plan)
-    - [Scope Plane](#scope-plane)
-    - [Structure Plane](#structure-plane)
-    - [Skeleton Plane](#skeleton-plane)
-    - [Surface Plane](#surface-plane)
-  - [Features](#features)
-    - [Existing features](#existing-features)
-      - [Home](#home)
-      - [Game](#game)
-      - [Tutorial](#tutorial)
-    - [Features left to implement](#features-left-to-implement)
-- [Technologies Used](#technologies-used)
-  - [Languages and frameworks](#languages-and-frameworks)
-  - [Additional tools used](#additional-tools-used)
-- [Git Commit Messages](#git-commit-messages)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [Cloning](#cloning)
-- [Credits](#credits) -->
-
 - <a href="#design-Process">1. Design Process (UX)</a>
   - <a href="#ux-goals">1.1. Project goals</a>
   - <a href="#ux-stories">1.2 User stories</a>
