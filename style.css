@@ -91,7 +91,7 @@ ul.nav.navbar-nav.navbar-right {
 /* media queries */
 
 @media screen and (min-width: 760px) {
-
+    /* 
     .rec-outer,
     .rec-middle,
     .rec-inner {
@@ -127,7 +127,7 @@ ul.nav.navbar-nav.navbar-right {
     p.c-msg {
         text-align: center;
 
-    }
+    } */
 }
 
 
@@ -152,7 +152,7 @@ ul.nav.navbar-nav.navbar-right {
     .col-xs-3.player-id-2 {
         background-color: #5d5ddb;
         width: 64%;
-        margin-left: 2px;
+        margin-left: 8px;
     }
 
 
@@ -207,7 +207,7 @@ ul.nav.navbar-nav.navbar-right {
     }
 
     .game-wrapper {
-        margin-right: 10px;
+        margin-left: 4px;
         margin-bottom: 0;
 
     }
@@ -280,7 +280,6 @@ ul.nav.navbar-nav.navbar-right {
     height: 350px;
     width: 350px;
     margin-top: 40px;
-    margin-bottom: 40px;
 
 }
 
@@ -532,7 +531,6 @@ ul.nav.navbar-nav.navbar-right {
     margin-top: 0%;
     color: #284df0;
     margin-bottom: 1%;
-    animation: blink-start 1s linear infinite;
     z-index: 1;
     cursor: pointer;
 
